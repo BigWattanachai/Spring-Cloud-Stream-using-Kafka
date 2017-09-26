@@ -1,0 +1,17 @@
+server:
+    port: 7000
+    context-path: /email-service/
+spring:
+    cloud:
+        stream:
+            bindings:
+                input:
+                    contentType: application/json
+                    destination: paymentTopic
+                    group: paymentTopicGroup
+            kafka:
+                binder:
+                    brokers: localhost
+                    zkNodes: localhost
+##                  defaultZkPort: 2181
+##                  defaultBrokerPort: 9092
